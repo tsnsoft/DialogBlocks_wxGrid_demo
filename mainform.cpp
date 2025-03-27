@@ -44,9 +44,10 @@ IMPLEMENT_CLASS(MainForm, wxFrame)
 	BEGIN_EVENT_TABLE(MainForm, wxFrame)
 
 	////@begin MainForm event table entries
-	EVT_BUTTON(ID_BUTTON_SUM, MainForm::OnButtonSumClick)
-	EVT_BUTTON(ID_BUTTON_RAND, MainForm::OnButtonRandClick)
-	EVT_BUTTON(ID_BUTTON_EXIT, MainForm::OnButtonExitClick)
+    EVT_BUTTON( ID_BUTTON_SUM, MainForm::OnButtonSumClick )
+    EVT_BUTTON( ID_BUTTON_RAND, MainForm::OnButtonRandClick )
+    EVT_BUTTON( ID_BUTTON_EXIT, MainForm::OnButtonExitClick )
+    EVT_BUTTON( ID_BUTTON, MainForm::OnButtonClick )
 	////@end MainForm event table entries
 
 	END_EVENT_TABLE()
@@ -79,15 +80,15 @@ MainForm::MainForm(wxWindow* parent, wxWindowID id, const wxString& caption, con
 bool MainForm::Create(wxWindow* parent, wxWindowID id, const wxString& caption, const wxPoint& pos, const wxSize& size, long style)
 {
 	////@begin MainForm creation
-	wxFrame::Create(parent, id, caption, pos, size, style);
+    wxFrame::Create( parent, id, caption, pos, size, style );
 
-	CreateControls();
-	SetIcon(GetIconResource(wxT("tsnsoft.xpm")));
-	if (GetSizer())
-	{
-		GetSizer()->SetSizeHints(this);
-	}
-	Centre();
+    CreateControls();
+    SetIcon(GetIconResource(wxT("tsnsoft.xpm")));
+    if (GetSizer())
+    {
+        GetSizer()->SetSizeHints(this);
+    }
+    Centre();
 	////@end MainForm creation
 	return true;
 }
@@ -111,8 +112,8 @@ MainForm::~MainForm()
 void MainForm::Init()
 {
 	////@begin MainForm member initialisation
-	m_grid1 = NULL;
-	m_staticText_Sum = NULL;
+    m_grid1 = NULL;
+    m_staticText_Sum = NULL;
 	////@end MainForm member initialisation
 }
 
@@ -124,33 +125,36 @@ void MainForm::Init()
 void MainForm::CreateControls()
 {
 	////@begin MainForm content construction
-	MainForm* itemFrame1 = this;
+    MainForm* itemFrame1 = this;
 
-	wxGridBagSizer* itemGridBagSizer1 = new wxGridBagSizer(0, 0);
-	itemGridBagSizer1->SetEmptyCellSize(wxSize(10, 19));
-	itemFrame1->SetSizer(itemGridBagSizer1);
+    wxGridBagSizer* itemGridBagSizer1 = new wxGridBagSizer(0, 0);
+    itemGridBagSizer1->SetEmptyCellSize(wxSize(10, 19));
+    itemFrame1->SetSizer(itemGridBagSizer1);
 
-	wxButton* itemButton3 = new wxButton(itemFrame1, ID_BUTTON_SUM, wxT("Сумма"), wxDefaultPosition, wxDefaultSize, 0);
-	itemGridBagSizer1->Add(itemButton3, wxGBPosition(6, 8), wxGBSpan(1, 3), wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL | wxALL, 4);
+    wxButton* itemButton3 = new wxButton( itemFrame1, ID_BUTTON_SUM, wxT("Сумма"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemGridBagSizer1->Add(itemButton3, wxGBPosition(6, 8), wxGBSpan(1, 3), wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxALL, 4);
 
-	wxButton* itemButton1 = new wxButton(itemFrame1, ID_BUTTON_RAND, wxT("Случайные"), wxDefaultPosition, wxDefaultSize, 0);
-	itemGridBagSizer1->Add(itemButton1, wxGBPosition(6, 3), wxGBSpan(1, 3), wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL | wxALL, 5);
+    wxButton* itemButton1 = new wxButton( itemFrame1, ID_BUTTON_RAND, wxT("Случайные"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemGridBagSizer1->Add(itemButton1, wxGBPosition(6, 3), wxGBSpan(1, 3), wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-	m_grid1 = new wxGrid(itemFrame1, ID_GRID, wxDefaultPosition, wxSize(500, 250), wxSUNKEN_BORDER | wxHSCROLL | wxVSCROLL);
-	m_grid1->SetForegroundColour(wxColour(255, 255, 0));
-	m_grid1->SetBackgroundColour(wxColour(0, 255, 0));
-	m_grid1->SetDefaultColSize(60);
-	m_grid1->SetDefaultRowSize(25);
-	m_grid1->SetColLabelSize(25);
-	m_grid1->SetRowLabelSize(50);
-	m_grid1->CreateGrid(8, 7, wxGrid::wxGridSelectCells);
-	itemGridBagSizer1->Add(m_grid1, wxGBPosition(1, 1), wxGBSpan(3, 20), wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL | wxALL, 5);
+    m_grid1 = new wxGrid( itemFrame1, ID_GRID, wxDefaultPosition, wxSize(500, 250), wxSUNKEN_BORDER|wxHSCROLL|wxVSCROLL );
+    m_grid1->SetForegroundColour(wxColour(255, 255, 0));
+    m_grid1->SetBackgroundColour(wxColour(0, 255, 0));
+    m_grid1->SetDefaultColSize(60);
+    m_grid1->SetDefaultRowSize(25);
+    m_grid1->SetColLabelSize(25);
+    m_grid1->SetRowLabelSize(50);
+    m_grid1->CreateGrid(8, 7, wxGrid::wxGridSelectCells);
+    itemGridBagSizer1->Add(m_grid1, wxGBPosition(1, 1), wxGBSpan(3, 20), wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-	m_staticText_Sum = new wxStaticText(itemFrame1, ID_TEXT_SUM, wxT("Результат"), wxDefaultPosition, wxDefaultSize, 0);
-	itemGridBagSizer1->Add(m_staticText_Sum, wxGBPosition(5, 7), wxGBSpan(1, 7), wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL | wxALL, 4);
+    m_staticText_Sum = new wxStaticText( itemFrame1, ID_TEXT_SUM, wxT("Результат"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemGridBagSizer1->Add(m_staticText_Sum, wxGBPosition(5, 7), wxGBSpan(1, 7), wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxALL, 4);
 
-	wxButton* itemButton2 = new wxButton(itemFrame1, ID_BUTTON_EXIT, wxT("Выход"), wxDefaultPosition, wxDefaultSize, 0);
-	itemGridBagSizer1->Add(itemButton2, wxGBPosition(6, 17), wxGBSpan(1, 1), wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL | wxALL, 5);
+    wxButton* itemButton2 = new wxButton( itemFrame1, ID_BUTTON_EXIT, wxT("Выход"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemGridBagSizer1->Add(itemButton2, wxGBPosition(6, 17), wxGBSpan(1, 1), wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxALL, 5);
+
+    wxButton* itemButton4 = new wxButton( itemFrame1, ID_BUTTON, wxT("кенкен"), wxDefaultPosition, wxDefaultSize, 0 );
+    itemGridBagSizer1->Add(itemButton4, wxGBPosition(2, 0), wxGBSpan(1, 1), wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
 	////@end MainForm content construction
 }
@@ -196,8 +200,8 @@ wxBitmap MainForm::GetBitmapResource(const wxString& name)
 {
 	// Bitmap retrieval
 ////@begin MainForm bitmap retrieval
-	wxUnusedVar(name);
-	return wxNullBitmap;
+    wxUnusedVar(name);
+    return wxNullBitmap;
 	////@end MainForm bitmap retrieval
 }
 
@@ -209,13 +213,13 @@ wxIcon MainForm::GetIconResource(const wxString& name)
 {
 	// Icon retrieval
 ////@begin MainForm icon retrieval
-	wxUnusedVar(name);
-	if (name == wxT("tsnsoft.xpm"))
-	{
-		wxIcon icon(tsnsoft_xpm);
-		return icon;
-	}
-	return wxNullIcon;
+    wxUnusedVar(name);
+    if (name == wxT("tsnsoft.xpm"))
+    {
+        wxIcon icon(tsnsoft_xpm);
+        return icon;
+    }
+    return wxNullIcon;
 	////@end MainForm icon retrieval
 }
 
@@ -249,8 +253,18 @@ void MainForm::OnButtonRandClick(wxCommandEvent& event)
 void MainForm::OnButtonExitClick(wxCommandEvent& event)
 {
 	////@begin wxEVT_COMMAND_BUTTON_CLICKED event handler for ID_BUTTON_EXIT in MainForm.
-		// Before editing this code, remove the block markers.
-	Destroy();
+    // Before editing this code, remove the block markers.
+    Destroy();
 	////@end wxEVT_COMMAND_BUTTON_CLICKED event handler for ID_BUTTON_EXIT in MainForm. 
+}
+
+
+/*
+ * wxEVT_COMMAND_BUTTON_CLICKED event handler for ID_BUTTON
+ */
+
+void MainForm::OnButtonClick( wxCommandEvent& event )
+{
+    Destroy();
 }
 
