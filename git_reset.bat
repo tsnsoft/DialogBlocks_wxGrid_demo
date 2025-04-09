@@ -1,1 +1,1 @@
-@git fetch main && git reset --hard main && git clean -fd
+@git fetch origin && git reset --hard origin && git clean -fd
