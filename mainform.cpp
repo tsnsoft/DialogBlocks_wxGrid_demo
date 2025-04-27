@@ -47,7 +47,6 @@ IMPLEMENT_CLASS(MainForm, wxFrame)
     EVT_BUTTON( ID_BUTTON_SUM, MainForm::OnButtonSumClick )
     EVT_BUTTON( ID_BUTTON_RAND, MainForm::OnButtonRandClick )
     EVT_BUTTON( ID_BUTTON_EXIT, MainForm::OnButtonExitClick )
-    EVT_BUTTON( ID_BUTTON, MainForm::OnButtonClick )
 	////@end MainForm event table entries
 
 	END_EVENT_TABLE()
@@ -153,9 +152,6 @@ void MainForm::CreateControls()
     wxButton* itemButton2 = new wxButton( itemFrame1, ID_BUTTON_EXIT, wxT("Выход"), wxDefaultPosition, wxDefaultSize, 0 );
     itemGridBagSizer1->Add(itemButton2, wxGBPosition(6, 17), wxGBSpan(1, 1), wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
-    wxButton* itemButton4 = new wxButton( itemFrame1, ID_BUTTON, wxT("кенкен"), wxDefaultPosition, wxDefaultSize, 0 );
-    itemGridBagSizer1->Add(itemButton4, wxGBPosition(2, 0), wxGBSpan(1, 1), wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxALL, 5);
-
 	////@end MainForm content construction
 }
 
@@ -256,15 +252,5 @@ void MainForm::OnButtonExitClick(wxCommandEvent& event)
     // Before editing this code, remove the block markers.
     Destroy();
 	////@end wxEVT_COMMAND_BUTTON_CLICKED event handler for ID_BUTTON_EXIT in MainForm. 
-}
-
-
-/*
- * wxEVT_COMMAND_BUTTON_CLICKED event handler for ID_BUTTON
- */
-
-void MainForm::OnButtonClick( wxCommandEvent& event )
-{
-    Destroy();
 }
 

@@ -42,7 +42,6 @@ class wxGrid;
 #define ID_GRID 10003
 #define ID_TEXT_SUM 10002
 #define ID_BUTTON_EXIT 10005
-#define ID_BUTTON 10004
 #define SYMBOL_MAINFORM_STYLE wxCAPTION|wxSYSTEM_MENU|wxCLOSE_BOX
 #define SYMBOL_MAINFORM_TITLE wxT("Работа с таблицей")
 #define SYMBOL_MAINFORM_IDNAME ID_MAINFORM
@@ -86,9 +85,6 @@ public:
 
     /// wxEVT_COMMAND_BUTTON_CLICKED event handler for ID_BUTTON_EXIT
     void OnButtonExitClick( wxCommandEvent& event );
-
-    /// wxEVT_COMMAND_BUTTON_CLICKED event handler for ID_BUTTON
-    void OnButtonClick( wxCommandEvent& event );
 
 ////@end MainForm event handler declarations
 
