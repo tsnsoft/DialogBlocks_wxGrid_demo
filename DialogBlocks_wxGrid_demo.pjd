@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<anthemion-project version="1.0.0.0" xmlns="http://www.anthemion.co.uk1">
+<anthemion-project version="1.0.0.0" xmlns="http://www.anthemion.co.uk">
   <header>
     <bool name="always_generate_xrc">1</bool>
     <string name="app_class_name">"Application"</string>
